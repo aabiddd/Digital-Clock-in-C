@@ -35,4 +35,6 @@ int main()
         Sleep(delay);
         system("cls");
     }
+
+    printf("Hello word");
 }
