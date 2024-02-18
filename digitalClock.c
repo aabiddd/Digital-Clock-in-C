@@ -1,40 +1,42 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <windows.h>
+#include <stdlib.h>
 
-int main()
-{
-    int hour, minute, second;
+int main() {
+    int hr, min, sec;
     int delay = 1000;
-    printf("Set Time: \n");
-    scanf("%i%i%i", &hour, &minute, &second);
-    if (hour > 12 || minute > 60 || second > 60)
-    {
-        printf("ERROR!! \n");
+
+    printf("Enter initial Time:\n");
+    printf("Hour: ");
+    scanf("%d", &hr);
+    printf("Minute: ");
+    scanf("%d", &min);
+    printf("Second: ");
+    scanf("%d", &sec);
+
+    if (hr > 12 || min > 60 || sec > 60) {
+        printf("Invalid Time Entered!\n");
         exit(0);
     }
-    while(1)
-    {
-        second++;
-        if (second > 59)
-        {
-            minute++;
-            second = 0;
+
+    while (1) {
+        sec++;
+        if (sec > 59) {
+            min++;
+            sec = 0;
         }
-        if (minute > 59)
-        {
-            hour++;
-            minute = 0;
+        if (min > 59) {
+            hr++;
+            min = 0;
         }
-        if (hour > 11)
-        {
-            hour = 0;
+        if (hr > 11) {
+            hr = 0;
         }
-        printf("\n Clock: ");
-        printf("\n %02i:%02i:%02i", hour, minute, second);
+
+        printf("\nCurrent Time: \n");
+        printf("%02d:%02d:%02d", hr, min, sec); 
         Sleep(delay);
         system("cls");
     }
-
-    printf("Hello word");
+    return 0;        
 }
